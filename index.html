@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Score Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <span class="brand-tag">LIVE</span>
+          <h1>Sports Score Board</h1>
+        </div>
+        <button id="resetBtn" class="ghost-btn" type="button">Reset</button>
+      </header>
+
+      <main class="scoreboard">
+        <section class="status-panel">
+          <div class="status-item">
+            <span class="label">Sport</span>
+            <select id="sportSelect" class="sport-select" aria-label="Select a sport">
+              <option value="NBA">NBA</option>
+              <option value="WNBA">WNBA</option>
+              <option value="NCAA">NCAA</option>
+              <option value="NFL">NFL</option>
+              <option value="MLB">MLB</option>
+              <option value="NHL">NHL</option>
+              <option value="Soccer">Soccer</option>
+              <option value="Cricket">Cricket</option>
+              <option value="PBA">PBA</option>
+              <option value="MMA">MMA</option>
+              <option value="UFC">UFC</option>
+              <option value="Bellator">Bellator</option>
+              <option value="Tennis">Tennis</option>
+              <option value="Table Tennis">Table Tennis</option>
+              <option value="Boxing">Boxing</option>
+            </select>
+          </div>
+
+          <div class="status-item">
+            <span id="periodLabel" class="label">Quarter</span>
+            <div class="inline-control">
+              <button class="mini-btn" data-action="period-down" type="button">−</button>
+              <strong id="periodDisplay">1</strong>
+              <button class="mini-btn" data-action="period-up" type="button">+</button>
+            </div>
+          </div>
+
+          <div class="status-item timer-box">
+            <span class="label">Game Clock</span>
+            <div id="clockDisplay" class="clock">10:00</div>
+          </div>
+
+          <div class="status-item">
+            <span class="label">Game State</span>
+            <button id="toggleTimerBtn" class="primary-btn" type="button">Start</button>
+          </div>
+        </section>
+
+        <section class="teams-panel">
+          <article class="team-card home-card">
+            <div class="team-header">
+              <span class="home-dot"></span>
+              <h2 id="homeTeamName">Home</h2>
+            </div>
+            <div id="homeScore" class="team-score">0</div>
+            <div id="homeScoreButtons" class="button-stack"></div>
+          </article>
+
+          <article class="team-card away-card">
+            <div class="team-header">
+              <span class="away-dot"></span>
+              <h2 id="awayTeamName">Away</h2>
+            </div>
+            <div id="awayScore" class="team-score">0</div>
+            <div id="awayScoreButtons" class="button-stack"></div>
+          </article>
+        </section>
+
+        <section class="stats-section">
+          <div class="section-heading">
+            <h3>Player Stats</h3>
+          </div>
+          <div class="player-stats-grid">
+            <article class="player-stat-card">
+              <h4 id="homeLeadersTitle">Home Leaders</h4>
+              <ul id="homePlayersList" class="player-list"></ul>
+            </article>
+            <article class="player-stat-card">
+              <h4 id="awayLeadersTitle">Away Leaders</h4>
+              <ul id="awayPlayersList" class="player-list"></ul>
+            </article>
+          </div>
+        </section>
+
+        <div class="ticker-wrap">
+          <div class="ticker-label">LIVE</div>
+          <div id="tickerText" class="ticker-text" aria-live="polite"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
